@@ -62,6 +62,8 @@ dependencies:
   firebase_core: ^2.27.0
   # Flutter library to load and cache network images.
   cached_network_image: ^3.3.1
+  # reading and writing simple key-value pairs
+  shared_preferences: ^2.2.3
 
 dev_dependencies:
   flutter_test:
