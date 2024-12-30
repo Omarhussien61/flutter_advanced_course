@@ -9,16 +9,11 @@ class DocLogoAndName extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        SvgPicture.asset('assets/svgs/docdoc_logo.svg'),
-        SizedBox(width: 10.w),
-        Text(
-          'DocDoc',
-          style: TextStyles.font24BlackBold,
-        ),
-      ],
+    return Center(
+      child: SvgPicture.asset('assets/svgs/docdoc_logo.svg',
+        height: ScreenUtil.defaultSize.width/3,
+        width: ScreenUtil.defaultSize.width/3,
+      ),
     );
   }
 }

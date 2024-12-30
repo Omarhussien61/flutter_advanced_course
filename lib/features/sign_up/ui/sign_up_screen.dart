@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_complete_project/core/widgets/app_social_button.dart';
+import 'package:flutter_complete_project/features/onboarding/widgets/doc_logo_and_name.dart';
 import 'package:flutter_complete_project/features/sign_up/ui/widgets/sign_up_bloc_listener.dart';
 import 'package:flutter_complete_project/features/sign_up/ui/widgets/sign_up_form.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -24,29 +26,65 @@ class SignupScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                DocLogoAndName(),
                 Text(
-                  'Create Account',
-                  style: TextStyles.font24BlueBold,
+                  'SignUp',
+                  style: TextStyles.font24BlackBold,
                 ),
-                verticalSpace(8),
-                Text(
-                  'Sign up now and start exploring all that our app has to offer. We\'re excited to welcome you to our community!',
-                  style: TextStyles.font14GrayRegular,
-                ),
-                verticalSpace(36),
+                verticalSpace(10),
+
                 Column(
                   children: [
                     const SignupForm(),
                     verticalSpace(40),
                     AppTextButton(
-                      buttonText: "Create Account",
-                      textStyle: TextStyles.font16WhiteSemiBold,
+                      buttonHeight: 50,
+                      borderRadius: 50,
+                      buttonWidth: ScreenUtil.defaultSize.width/1.5,
+                      buttonText: "SignUp",
+                      textStyle: TextStyles.font16WhiteRegular,
                       onPressed: () {
                         validateThenDoSignup(context);
                       },
                     ),
-                    verticalSpace(16),
-                    const TermsAndConditionsText(),
+                    verticalSpace(30),
+
+                    Text(
+                      'or signup with',
+                    ),
+                    verticalSpace(30),
+
+                    AppSocialButton(
+                      icon:Icon(Icons.apple,color: Colors.black,size: 35,),
+                      buttonText: "Continue with Apple",
+                      buttonHeight: 50,borderRadius: 5,
+                      horizontalPadding: 1,
+                      verticalPadding: 1,
+                      buttonWidth: ScreenUtil.defaultSize.width/1.5,
+
+                      textStyle: TextStyles.font16Black,
+                      onPressed: () {
+                      },
+                    ),
+                    verticalSpace(5),
+
+                    Text(
+                      'or',
+                    ),
+                    verticalSpace(5),
+                    AppSocialButton(
+                      icon:Image.asset('assets/images/google.png',height: 30,),
+                      buttonText: "Continue with Google",
+                      buttonHeight: 50,borderRadius: 5,
+                      horizontalPadding: 1,
+                      verticalPadding: 1,
+                      buttonWidth: ScreenUtil.defaultSize.width/1.5,
+
+                      textStyle: TextStyles.font16Black,
+                      onPressed: () {
+                      },
+                    ),
+                    verticalSpace(50),
                     verticalSpace(30),
                     const AlreadyHaveAccountText(),
                     const SignupBlocListener(),

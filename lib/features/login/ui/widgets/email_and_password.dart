@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_complete_project/core/helpers/app_regex.dart';
+import 'package:flutter_complete_project/core/theming/colors.dart';
+import 'package:flutter_complete_project/core/theming/styles.dart';
 import 'package:flutter_complete_project/features/login/logic/cubit/login_cubit.dart';
 
 import '../../../../core/helpers/spacing.dart';
@@ -47,51 +49,65 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
 
   @override
   Widget build(BuildContext context) {
-    return Form(
-      key: context.read<LoginCubit>().formKey,
-      child: Column(
-        children: [
-          AppTextFormField(
-            hintText: 'Email',
-            validator: (value) {
-              if (value == null ||
-                  value.isEmpty ||
-                  !AppRegex.isEmailValid(value)) {
-                return 'Please enter a valid email';
-              }
-            },
-            controller: context.read<LoginCubit>().emailController,
-          ),
-          verticalSpace(18),
-          AppTextFormField(
-            controller: context.read<LoginCubit>().passwordController,
-            hintText: 'Password',
-            isObscureText: isObscureText,
-            suffixIcon: GestureDetector(
-              onTap: () {
-                setState(() {
-                  isObscureText = !isObscureText;
-                });
+    return Container(
+      decoration: BoxDecoration(
+        shape: BoxShape.rectangle,
+        color: ColorsManager.lightGray,
+        borderRadius: BorderRadius.circular(12.0),
+      ),      child: Form(
+        key: context.read<LoginCubit>().formKey,
+        child: Column(
+          children: [
+            AppTextFormField(
+              hintText: 'Enter Your Email Or Username',
+              backgroundColor: ColorsManager.lightGray,
+
+              validator: (value) {
+                if (value == null ||
+                    value.isEmpty ||
+                    !AppRegex.isEmailValid(value)) {
+                  return 'Please enter a valid email';
+                }
               },
-              child: Icon(
-                isObscureText ? Icons.visibility_off : Icons.visibility,
-              ),
+              controller: context.read<LoginCubit>().emailController,
+              prefixIcon:Icon(Icons.person,color: Colors.white,) ,
+              hintStyle: TextStyle(color: Colors.white),
+
+
             ),
-            validator: (value) {
-              if (value == null || value.isEmpty) {
-                return 'Please enter a valid password';
-              }
-            },
-          ),
-          verticalSpace(24),
-          PasswordValidations(
-            hasLowerCase: hasLowercase,
-            hasUpperCase: hasUppercase,
-            hasSpecialCharacters: hasSpecialCharacters,
-            hasNumber: hasNumber,
-            hasMinLength: hasMinLength,
-          ),
-        ],
+            AppTextFormField(
+              controller: context.read<LoginCubit>().passwordController,
+              hintText: 'Password',
+              backgroundColor: ColorsManager.lightGray,
+              prefixIcon:Icon(Icons.lock_rounded,color: Colors.white,) ,
+
+              isObscureText: isObscureText,
+              suffixIcon: GestureDetector(
+                onTap: () {
+                  setState(() {
+                    isObscureText = !isObscureText;
+                  });
+                },
+                child: Icon(
+                  isObscureText ? Icons.visibility_off : Icons.visibility,
+                ),
+              ),
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Please enter a valid password';
+                }
+              },
+              hintStyle: TextStyle(color: Colors.white),
+            ),
+            // PasswordValidations(
+            //   hasLowerCase: hasLowercase,
+            //   hasUpperCase: hasUppercase,
+            //   hasSpecialCharacters: hasSpecialCharacters,
+            //   hasNumber: hasNumber,
+            //   hasMinLength: hasMinLength,
+            // ),
+          ],
+        ),
       ),
     );
   }

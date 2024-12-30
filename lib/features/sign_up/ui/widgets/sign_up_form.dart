@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_complete_project/core/helpers/app_regex.dart';
+import 'package:flutter_complete_project/core/theming/colors.dart';
 import 'package:flutter_complete_project/features/sign_up/logic/sign_up_cubit.dart';
 
 import '../../../../core/helpers/spacing.dart';
@@ -48,98 +49,122 @@ class _SignupFormState extends State<SignupForm> {
 
   @override
   Widget build(BuildContext context) {
-    return Form(
-      key: context.read<SignupCubit>().formKey,
-      child: Column(
-        children: [
-          AppTextFormField(
-            hintText: 'Name',
-            validator: (value) {
-              if (value == null || value.isEmpty) {
-                return 'Please enter a valid name';
-              }
-            },
-            controller: context.read<SignupCubit>().nameController,
-          ),
-          verticalSpace(18),
-          AppTextFormField(
-            hintText: 'Phone number',
-            validator: (value) {
-              if (value == null ||
-                  value.isEmpty ||
-                  !AppRegex.isPhoneNumberValid(value)) {
-                return 'Please enter a valid phone number';
-              }
-            },
-            controller: context.read<SignupCubit>().phoneController,
-          ),
-          verticalSpace(18),
-          AppTextFormField(
-            hintText: 'Email',
-            validator: (value) {
-              if (value == null ||
-                  value.isEmpty ||
-                  !AppRegex.isEmailValid(value)) {
-                return 'Please enter a valid email';
-              }
-            },
-            controller: context.read<SignupCubit>().emailController,
-          ),
-          verticalSpace(18),
-          AppTextFormField(
-            controller: context.read<SignupCubit>().passwordController,
-            hintText: 'Password',
-            isObscureText: isPasswordObscureText,
-            suffixIcon: GestureDetector(
-              onTap: () {
-                setState(() {
-                  isPasswordObscureText = !isPasswordObscureText;
-                });
+    return Container(
+      decoration: BoxDecoration(
+        shape: BoxShape.rectangle,
+        color: ColorsManager.lightGray,
+        borderRadius: BorderRadius.circular(15.0),
+      ),
+      child: Form(
+        key: context.read<SignupCubit>().formKey,
+        child: Column(
+          children: [
+            AppTextFormField(
+              backgroundColor: ColorsManager.lightGray,
+              prefixIcon:Icon(Icons.person,color: Colors.white,) ,
+
+              hintText: 'Name',
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Please enter a valid name';
+                }
               },
-              child: Icon(
-                isPasswordObscureText ? Icons.visibility_off : Icons.visibility,
-              ),
+              controller: context.read<SignupCubit>().nameController,
+              hintStyle: TextStyle(color: Colors.white),
+
             ),
-            validator: (value) {
-              if (value == null || value.isEmpty) {
-                return 'Please enter a valid password';
-              }
-            },
-          ),
-          verticalSpace(18),
-          AppTextFormField(
-            controller:
-                context.read<SignupCubit>().passwordConfirmationController,
-            hintText: 'Password Confirmation',
-            isObscureText: isPasswordConfirmationObscureText,
-            suffixIcon: GestureDetector(
-              onTap: () {
-                setState(() {
-                  isPasswordConfirmationObscureText =
-                      !isPasswordConfirmationObscureText;
-                });
+            AppTextFormField(
+              backgroundColor: ColorsManager.lightGray,
+              prefixIcon:Icon(Icons.phone_android,color: Colors.white,) ,
+
+              hintText: 'Phone number',
+              validator: (value) {
+                if (value == null ||
+                    value.isEmpty ||
+                    !AppRegex.isPhoneNumberValid(value)) {
+                  return 'Please enter a valid phone number';
+                }
               },
-              child: Icon(
-                isPasswordConfirmationObscureText
-                    ? Icons.visibility_off
-                    : Icons.visibility,
-              ),
+              controller: context.read<SignupCubit>().phoneController,
+              hintStyle: TextStyle(color: Colors.white),
+
             ),
-            validator: (value) {
-              if (value == null || value.isEmpty) {
-                return 'Please enter a valid password';
-              }
-            },
-          ),
-          verticalSpace(24),
-          PasswordValidations(
-            hasLowerCase: hasLowercase,
-            hasUpperCase: hasUppercase,
-            hasSpecialCharacters: hasSpecialCharacters,
-            hasNumber: hasNumber,
-            hasMinLength: hasMinLength,
-          ),
-        ],
+            AppTextFormField(
+              backgroundColor: ColorsManager.lightGray,
+              hintStyle: TextStyle(color: Colors.white),
+              prefixIcon:Icon(Icons.email_rounded,color: Colors.white,) ,
+
+              hintText: 'Email',
+              validator: (value) {
+                if (value == null ||
+                    value.isEmpty ||
+                    !AppRegex.isEmailValid(value)) {
+                  return 'Please enter a valid email';
+                }
+              },
+              controller: context.read<SignupCubit>().emailController,
+            ),
+            AppTextFormField(
+              backgroundColor: ColorsManager.lightGray,
+              hintStyle: TextStyle(color: Colors.white),
+              prefixIcon:Icon(Icons.lock_rounded,color: Colors.white,) ,
+
+              controller: context.read<SignupCubit>().passwordController,
+              hintText: 'Password',
+              isObscureText: isPasswordObscureText,
+              suffixIcon: GestureDetector(
+                onTap: () {
+                  setState(() {
+                    isPasswordObscureText = !isPasswordObscureText;
+                  });
+                },
+                child: Icon(
+                  isPasswordObscureText ? Icons.visibility_off : Icons.visibility,
+                ),
+              ),
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Please enter a valid password';
+                }
+              },
+            ),
+            AppTextFormField(
+              backgroundColor: ColorsManager.lightGray,
+              hintStyle: TextStyle(color: Colors.white),
+              prefixIcon:Icon(Icons.lock_rounded,color: Colors.white,) ,
+
+              controller:
+                  context.read<SignupCubit>().passwordConfirmationController,
+              hintText: 'Password Confirmation',
+              isObscureText: isPasswordConfirmationObscureText,
+              suffixIcon: GestureDetector(
+                onTap: () {
+                  setState(() {
+                    isPasswordConfirmationObscureText =
+                        !isPasswordConfirmationObscureText;
+                  });
+                },
+                child: Icon(
+                  isPasswordConfirmationObscureText
+                      ? Icons.visibility_off
+                      : Icons.visibility,
+                ),
+              ),
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Please enter a valid password';
+                }
+              },
+            ),
+            // PasswordValidations(
+            //   hasLowerCase: hasLowercase,
+            //   hasUpperCase: hasUppercase,
+            //   hasSpecialCharacters: hasSpecialCharacters,
+            //   hasNumber: hasNumber,
+            //   hasMinLength: hasMinLength,
+            // ),
+          ],
+        ),
       ),
     );
   }
