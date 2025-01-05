@@ -38,11 +38,11 @@ class SignupScreen extends StatelessWidget {
                     const SignupForm(),
                     verticalSpace(40),
                     AppTextButton(
-                      buttonHeight: 50,
+                      buttonHeight: 55,
                       borderRadius: 50,
                       buttonWidth: ScreenUtil.defaultSize.width/1.5,
                       buttonText: "SignUp",
-                      textStyle: TextStyles.font16WhiteRegular,
+                      textStyle: TextStyles.font16WhiteSemiBold,
                       onPressed: () {
                         validateThenDoSignup(context);
                       },

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_complete_project/core/helpers/spacing.dart';
+import 'package:flutter_complete_project/core/theming/colors.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/theming/styles.dart';
@@ -24,16 +25,17 @@ class DoctorsBlueContainer extends StatelessWidget {
             ),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(24.0),
-              image: const DecorationImage(
-                image: AssetImage('assets/images/home_blue_pattern.png'),
-                fit: BoxFit.cover,
-              ),
+              color: ColorsManager.mainBlue,
+              // image: const DecorationImage(
+              //   image: AssetImage('assets/images/home_blue_pattern.png'),
+              //   fit: BoxFit.cover,
+              // ),
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Book and\nschedule with\nnearest doctor',
+                  'Book and\nschedule with\n50%',
                   style: TextStyles.font18WhiteMedium,
                   textAlign: TextAlign.start,
                 ),
@@ -57,11 +59,11 @@ class DoctorsBlueContainer extends StatelessWidget {
             ),
           ),
           Positioned(
-            right: 8.w,
-            top: 0,
+            right: 20.w,
+            top: 1,
             child: Image.asset(
               'assets/images/omar.png',
-              height: 200.h,
+              height: 230.h,
             ),
           ),
         ],

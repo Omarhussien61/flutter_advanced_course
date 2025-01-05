@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_complete_project/core/helpers/spacing.dart';
+import 'package:flutter_complete_project/core/theming/colors.dart';
 import 'package:flutter_complete_project/features/home/ui/widgets/doctors_list/doctros_bloc_builder.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -29,8 +30,8 @@ class HomeScreen extends StatelessWidget {
             children: [
               const HomeTopBar(),
               const DoctorsBlueContainer(),
-              verticalSpace(24),
-              const DoctorsSpecialitySeeAll(),
+              // verticalSpace(24),
+              // const DoctorsSpecialitySeeAll(),
               verticalSpace(18),
               const SpecializationsBlocBuilder(),
               verticalSpace(8),
@@ -39,6 +40,33 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
       ),
+      bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.grey,
+        unselectedItemColor:Colors.grey ,
+         showSelectedLabels: false,
+         fixedColor: ColorsManager.mainBlue,
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.camera),
+            label: 'Calls',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.camera),
+            label: 'Camera',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.chat),
+            label: 'Chats',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.chat),
+            label: 'Chats',
+          ),
+        ],
+
+      ),
     );
+
   }
+
 }

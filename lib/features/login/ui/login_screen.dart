@@ -51,7 +51,7 @@ class LoginScreen extends StatelessWidget {
                       buttonWidth: ScreenUtil.defaultSize.width/1.5,
 
                       buttonText: "Login",
-                      buttonHeight: 50,borderRadius: 50,
+                      buttonHeight: 55,borderRadius: 50,
                       textStyle: TextStyles.font16WhiteSemiBold,
                       onPressed: () {
                         validateThenDoLogin(context);
