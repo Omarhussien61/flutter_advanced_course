@@ -11,12 +11,12 @@ class HomeState with _$HomeState {
 
   // Specializations
   const factory HomeState.specializationsLoading() = SpecializationsLoading;
+  const factory HomeState.onItemTapped(int index) = onItemTapped;
   const factory HomeState.specializationsSuccess(List<SpecializationsData?>? specializationDataList) = SpecializationsSuccess;
-  const factory HomeState.specializationsError(ErrorHandler errorHandler) =
-      SpecializationsError;
+  const factory HomeState.specializationsError(ErrorHandler errorHandler) =SpecializationsError;
 
   // Doctors
   const factory HomeState.doctorsSuccess(List<Doctors?>? doctorsList) = DoctorsSuccess;
-  const factory HomeState.doctorsError(ErrorHandler errorHandler) =
-      DoctorsError;
+
+  const factory HomeState.doctorsError(ErrorHandler errorHandler) =DoctorsError;
 }

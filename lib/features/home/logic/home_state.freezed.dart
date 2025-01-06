@@ -20,6 +20,7 @@ mixin _$HomeState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() specializationsLoading,
+    required TResult Function(int index) onItemTapped,
     required TResult Function(
             List<SpecializationsData?>? specializationDataList)
         specializationsSuccess,
@@ -32,6 +33,7 @@ mixin _$HomeState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? specializationsLoading,
+    TResult? Function(int index)? onItemTapped,
     TResult? Function(List<SpecializationsData?>? specializationDataList)?
         specializationsSuccess,
     TResult? Function(ErrorHandler errorHandler)? specializationsError,
@@ -43,6 +45,7 @@ mixin _$HomeState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? specializationsLoading,
+    TResult Function(int index)? onItemTapped,
     TResult Function(List<SpecializationsData?>? specializationDataList)?
         specializationsSuccess,
     TResult Function(ErrorHandler errorHandler)? specializationsError,
@@ -56,6 +59,7 @@ mixin _$HomeState {
     required TResult Function(_Initial value) initial,
     required TResult Function(SpecializationsLoading value)
         specializationsLoading,
+    required TResult Function(onItemTapped value) onItemTapped,
     required TResult Function(SpecializationsSuccess value)
         specializationsSuccess,
     required TResult Function(SpecializationsError value) specializationsError,
@@ -67,6 +71,7 @@ mixin _$HomeState {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(SpecializationsLoading value)? specializationsLoading,
+    TResult? Function(onItemTapped value)? onItemTapped,
     TResult? Function(SpecializationsSuccess value)? specializationsSuccess,
     TResult? Function(SpecializationsError value)? specializationsError,
     TResult? Function(DoctorsSuccess value)? doctorsSuccess,
@@ -77,6 +82,7 @@ mixin _$HomeState {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(SpecializationsLoading value)? specializationsLoading,
+    TResult Function(onItemTapped value)? onItemTapped,
     TResult Function(SpecializationsSuccess value)? specializationsSuccess,
     TResult Function(SpecializationsError value)? specializationsError,
     TResult Function(DoctorsSuccess value)? doctorsSuccess,
@@ -143,6 +149,7 @@ class _$InitialImpl implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() specializationsLoading,
+    required TResult Function(int index) onItemTapped,
     required TResult Function(
             List<SpecializationsData?>? specializationDataList)
         specializationsSuccess,
@@ -158,6 +165,7 @@ class _$InitialImpl implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? specializationsLoading,
+    TResult? Function(int index)? onItemTapped,
     TResult? Function(List<SpecializationsData?>? specializationDataList)?
         specializationsSuccess,
     TResult? Function(ErrorHandler errorHandler)? specializationsError,
@@ -172,6 +180,7 @@ class _$InitialImpl implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? specializationsLoading,
+    TResult Function(int index)? onItemTapped,
     TResult Function(List<SpecializationsData?>? specializationDataList)?
         specializationsSuccess,
     TResult Function(ErrorHandler errorHandler)? specializationsError,
@@ -191,6 +200,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function(_Initial value) initial,
     required TResult Function(SpecializationsLoading value)
         specializationsLoading,
+    required TResult Function(onItemTapped value) onItemTapped,
     required TResult Function(SpecializationsSuccess value)
         specializationsSuccess,
     required TResult Function(SpecializationsError value) specializationsError,
@@ -205,6 +215,7 @@ class _$InitialImpl implements _Initial {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(SpecializationsLoading value)? specializationsLoading,
+    TResult? Function(onItemTapped value)? onItemTapped,
     TResult? Function(SpecializationsSuccess value)? specializationsSuccess,
     TResult? Function(SpecializationsError value)? specializationsError,
     TResult? Function(DoctorsSuccess value)? doctorsSuccess,
@@ -218,6 +229,7 @@ class _$InitialImpl implements _Initial {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(SpecializationsLoading value)? specializationsLoading,
+    TResult Function(onItemTapped value)? onItemTapped,
     TResult Function(SpecializationsSuccess value)? specializationsSuccess,
     TResult Function(SpecializationsError value)? specializationsError,
     TResult Function(DoctorsSuccess value)? doctorsSuccess,
@@ -278,6 +290,7 @@ class _$SpecializationsLoadingImpl implements SpecializationsLoading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() specializationsLoading,
+    required TResult Function(int index) onItemTapped,
     required TResult Function(
             List<SpecializationsData?>? specializationDataList)
         specializationsSuccess,
@@ -293,6 +306,7 @@ class _$SpecializationsLoadingImpl implements SpecializationsLoading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? specializationsLoading,
+    TResult? Function(int index)? onItemTapped,
     TResult? Function(List<SpecializationsData?>? specializationDataList)?
         specializationsSuccess,
     TResult? Function(ErrorHandler errorHandler)? specializationsError,
@@ -307,6 +321,7 @@ class _$SpecializationsLoadingImpl implements SpecializationsLoading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? specializationsLoading,
+    TResult Function(int index)? onItemTapped,
     TResult Function(List<SpecializationsData?>? specializationDataList)?
         specializationsSuccess,
     TResult Function(ErrorHandler errorHandler)? specializationsError,
@@ -326,6 +341,7 @@ class _$SpecializationsLoadingImpl implements SpecializationsLoading {
     required TResult Function(_Initial value) initial,
     required TResult Function(SpecializationsLoading value)
         specializationsLoading,
+    required TResult Function(onItemTapped value) onItemTapped,
     required TResult Function(SpecializationsSuccess value)
         specializationsSuccess,
     required TResult Function(SpecializationsError value) specializationsError,
@@ -340,6 +356,7 @@ class _$SpecializationsLoadingImpl implements SpecializationsLoading {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(SpecializationsLoading value)? specializationsLoading,
+    TResult? Function(onItemTapped value)? onItemTapped,
     TResult? Function(SpecializationsSuccess value)? specializationsSuccess,
     TResult? Function(SpecializationsError value)? specializationsError,
     TResult? Function(DoctorsSuccess value)? doctorsSuccess,
@@ -353,6 +370,7 @@ class _$SpecializationsLoadingImpl implements SpecializationsLoading {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(SpecializationsLoading value)? specializationsLoading,
+    TResult Function(onItemTapped value)? onItemTapped,
     TResult Function(SpecializationsSuccess value)? specializationsSuccess,
     TResult Function(SpecializationsError value)? specializationsError,
     TResult Function(DoctorsSuccess value)? doctorsSuccess,
@@ -368,6 +386,175 @@ class _$SpecializationsLoadingImpl implements SpecializationsLoading {
 
 abstract class SpecializationsLoading implements HomeState {
   const factory SpecializationsLoading() = _$SpecializationsLoadingImpl;
+}
+
+/// @nodoc
+abstract class _$$onItemTappedImplCopyWith<$Res> {
+  factory _$$onItemTappedImplCopyWith(
+          _$onItemTappedImpl value, $Res Function(_$onItemTappedImpl) then) =
+      __$$onItemTappedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int index});
+}
+
+/// @nodoc
+class __$$onItemTappedImplCopyWithImpl<$Res>
+    extends _$HomeStateCopyWithImpl<$Res, _$onItemTappedImpl>
+    implements _$$onItemTappedImplCopyWith<$Res> {
+  __$$onItemTappedImplCopyWithImpl(
+      _$onItemTappedImpl _value, $Res Function(_$onItemTappedImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? index = null,
+  }) {
+    return _then(_$onItemTappedImpl(
+      null == index
+          ? _value.index
+          : index // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$onItemTappedImpl implements onItemTapped {
+  const _$onItemTappedImpl(this.index);
+
+  @override
+  final int index;
+
+  @override
+  String toString() {
+    return 'HomeState.onItemTapped(index: $index)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$onItemTappedImpl &&
+            (identical(other.index, index) || other.index == index));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, index);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$onItemTappedImplCopyWith<_$onItemTappedImpl> get copyWith =>
+      __$$onItemTappedImplCopyWithImpl<_$onItemTappedImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() specializationsLoading,
+    required TResult Function(int index) onItemTapped,
+    required TResult Function(
+            List<SpecializationsData?>? specializationDataList)
+        specializationsSuccess,
+    required TResult Function(ErrorHandler errorHandler) specializationsError,
+    required TResult Function(List<Doctors?>? doctorsList) doctorsSuccess,
+    required TResult Function(ErrorHandler errorHandler) doctorsError,
+  }) {
+    return onItemTapped(index);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? specializationsLoading,
+    TResult? Function(int index)? onItemTapped,
+    TResult? Function(List<SpecializationsData?>? specializationDataList)?
+        specializationsSuccess,
+    TResult? Function(ErrorHandler errorHandler)? specializationsError,
+    TResult? Function(List<Doctors?>? doctorsList)? doctorsSuccess,
+    TResult? Function(ErrorHandler errorHandler)? doctorsError,
+  }) {
+    return onItemTapped?.call(index);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? specializationsLoading,
+    TResult Function(int index)? onItemTapped,
+    TResult Function(List<SpecializationsData?>? specializationDataList)?
+        specializationsSuccess,
+    TResult Function(ErrorHandler errorHandler)? specializationsError,
+    TResult Function(List<Doctors?>? doctorsList)? doctorsSuccess,
+    TResult Function(ErrorHandler errorHandler)? doctorsError,
+    required TResult orElse(),
+  }) {
+    if (onItemTapped != null) {
+      return onItemTapped(index);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(SpecializationsLoading value)
+        specializationsLoading,
+    required TResult Function(onItemTapped value) onItemTapped,
+    required TResult Function(SpecializationsSuccess value)
+        specializationsSuccess,
+    required TResult Function(SpecializationsError value) specializationsError,
+    required TResult Function(DoctorsSuccess value) doctorsSuccess,
+    required TResult Function(DoctorsError value) doctorsError,
+  }) {
+    return onItemTapped(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(SpecializationsLoading value)? specializationsLoading,
+    TResult? Function(onItemTapped value)? onItemTapped,
+    TResult? Function(SpecializationsSuccess value)? specializationsSuccess,
+    TResult? Function(SpecializationsError value)? specializationsError,
+    TResult? Function(DoctorsSuccess value)? doctorsSuccess,
+    TResult? Function(DoctorsError value)? doctorsError,
+  }) {
+    return onItemTapped?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(SpecializationsLoading value)? specializationsLoading,
+    TResult Function(onItemTapped value)? onItemTapped,
+    TResult Function(SpecializationsSuccess value)? specializationsSuccess,
+    TResult Function(SpecializationsError value)? specializationsError,
+    TResult Function(DoctorsSuccess value)? doctorsSuccess,
+    TResult Function(DoctorsError value)? doctorsError,
+    required TResult orElse(),
+  }) {
+    if (onItemTapped != null) {
+      return onItemTapped(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class onItemTapped implements HomeState {
+  const factory onItemTapped(final int index) = _$onItemTappedImpl;
+
+  int get index;
+  @JsonKey(ignore: true)
+  _$$onItemTappedImplCopyWith<_$onItemTappedImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -451,6 +638,7 @@ class _$SpecializationsSuccessImpl implements SpecializationsSuccess {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() specializationsLoading,
+    required TResult Function(int index) onItemTapped,
     required TResult Function(
             List<SpecializationsData?>? specializationDataList)
         specializationsSuccess,
@@ -466,6 +654,7 @@ class _$SpecializationsSuccessImpl implements SpecializationsSuccess {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? specializationsLoading,
+    TResult? Function(int index)? onItemTapped,
     TResult? Function(List<SpecializationsData?>? specializationDataList)?
         specializationsSuccess,
     TResult? Function(ErrorHandler errorHandler)? specializationsError,
@@ -480,6 +669,7 @@ class _$SpecializationsSuccessImpl implements SpecializationsSuccess {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? specializationsLoading,
+    TResult Function(int index)? onItemTapped,
     TResult Function(List<SpecializationsData?>? specializationDataList)?
         specializationsSuccess,
     TResult Function(ErrorHandler errorHandler)? specializationsError,
@@ -499,6 +689,7 @@ class _$SpecializationsSuccessImpl implements SpecializationsSuccess {
     required TResult Function(_Initial value) initial,
     required TResult Function(SpecializationsLoading value)
         specializationsLoading,
+    required TResult Function(onItemTapped value) onItemTapped,
     required TResult Function(SpecializationsSuccess value)
         specializationsSuccess,
     required TResult Function(SpecializationsError value) specializationsError,
@@ -513,6 +704,7 @@ class _$SpecializationsSuccessImpl implements SpecializationsSuccess {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(SpecializationsLoading value)? specializationsLoading,
+    TResult? Function(onItemTapped value)? onItemTapped,
     TResult? Function(SpecializationsSuccess value)? specializationsSuccess,
     TResult? Function(SpecializationsError value)? specializationsError,
     TResult? Function(DoctorsSuccess value)? doctorsSuccess,
@@ -526,6 +718,7 @@ class _$SpecializationsSuccessImpl implements SpecializationsSuccess {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(SpecializationsLoading value)? specializationsLoading,
+    TResult Function(onItemTapped value)? onItemTapped,
     TResult Function(SpecializationsSuccess value)? specializationsSuccess,
     TResult Function(SpecializationsError value)? specializationsError,
     TResult Function(DoctorsSuccess value)? doctorsSuccess,
@@ -619,6 +812,7 @@ class _$SpecializationsErrorImpl implements SpecializationsError {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() specializationsLoading,
+    required TResult Function(int index) onItemTapped,
     required TResult Function(
             List<SpecializationsData?>? specializationDataList)
         specializationsSuccess,
@@ -634,6 +828,7 @@ class _$SpecializationsErrorImpl implements SpecializationsError {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? specializationsLoading,
+    TResult? Function(int index)? onItemTapped,
     TResult? Function(List<SpecializationsData?>? specializationDataList)?
         specializationsSuccess,
     TResult? Function(ErrorHandler errorHandler)? specializationsError,
@@ -648,6 +843,7 @@ class _$SpecializationsErrorImpl implements SpecializationsError {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? specializationsLoading,
+    TResult Function(int index)? onItemTapped,
     TResult Function(List<SpecializationsData?>? specializationDataList)?
         specializationsSuccess,
     TResult Function(ErrorHandler errorHandler)? specializationsError,
@@ -667,6 +863,7 @@ class _$SpecializationsErrorImpl implements SpecializationsError {
     required TResult Function(_Initial value) initial,
     required TResult Function(SpecializationsLoading value)
         specializationsLoading,
+    required TResult Function(onItemTapped value) onItemTapped,
     required TResult Function(SpecializationsSuccess value)
         specializationsSuccess,
     required TResult Function(SpecializationsError value) specializationsError,
@@ -681,6 +878,7 @@ class _$SpecializationsErrorImpl implements SpecializationsError {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(SpecializationsLoading value)? specializationsLoading,
+    TResult? Function(onItemTapped value)? onItemTapped,
     TResult? Function(SpecializationsSuccess value)? specializationsSuccess,
     TResult? Function(SpecializationsError value)? specializationsError,
     TResult? Function(DoctorsSuccess value)? doctorsSuccess,
@@ -694,6 +892,7 @@ class _$SpecializationsErrorImpl implements SpecializationsError {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(SpecializationsLoading value)? specializationsLoading,
+    TResult Function(onItemTapped value)? onItemTapped,
     TResult Function(SpecializationsSuccess value)? specializationsSuccess,
     TResult Function(SpecializationsError value)? specializationsError,
     TResult Function(DoctorsSuccess value)? doctorsSuccess,
@@ -794,6 +993,7 @@ class _$DoctorsSuccessImpl implements DoctorsSuccess {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() specializationsLoading,
+    required TResult Function(int index) onItemTapped,
     required TResult Function(
             List<SpecializationsData?>? specializationDataList)
         specializationsSuccess,
@@ -809,6 +1009,7 @@ class _$DoctorsSuccessImpl implements DoctorsSuccess {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? specializationsLoading,
+    TResult? Function(int index)? onItemTapped,
     TResult? Function(List<SpecializationsData?>? specializationDataList)?
         specializationsSuccess,
     TResult? Function(ErrorHandler errorHandler)? specializationsError,
@@ -823,6 +1024,7 @@ class _$DoctorsSuccessImpl implements DoctorsSuccess {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? specializationsLoading,
+    TResult Function(int index)? onItemTapped,
     TResult Function(List<SpecializationsData?>? specializationDataList)?
         specializationsSuccess,
     TResult Function(ErrorHandler errorHandler)? specializationsError,
@@ -842,6 +1044,7 @@ class _$DoctorsSuccessImpl implements DoctorsSuccess {
     required TResult Function(_Initial value) initial,
     required TResult Function(SpecializationsLoading value)
         specializationsLoading,
+    required TResult Function(onItemTapped value) onItemTapped,
     required TResult Function(SpecializationsSuccess value)
         specializationsSuccess,
     required TResult Function(SpecializationsError value) specializationsError,
@@ -856,6 +1059,7 @@ class _$DoctorsSuccessImpl implements DoctorsSuccess {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(SpecializationsLoading value)? specializationsLoading,
+    TResult? Function(onItemTapped value)? onItemTapped,
     TResult? Function(SpecializationsSuccess value)? specializationsSuccess,
     TResult? Function(SpecializationsError value)? specializationsError,
     TResult? Function(DoctorsSuccess value)? doctorsSuccess,
@@ -869,6 +1073,7 @@ class _$DoctorsSuccessImpl implements DoctorsSuccess {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(SpecializationsLoading value)? specializationsLoading,
+    TResult Function(onItemTapped value)? onItemTapped,
     TResult Function(SpecializationsSuccess value)? specializationsSuccess,
     TResult Function(SpecializationsError value)? specializationsError,
     TResult Function(DoctorsSuccess value)? doctorsSuccess,
@@ -959,6 +1164,7 @@ class _$DoctorsErrorImpl implements DoctorsError {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() specializationsLoading,
+    required TResult Function(int index) onItemTapped,
     required TResult Function(
             List<SpecializationsData?>? specializationDataList)
         specializationsSuccess,
@@ -974,6 +1180,7 @@ class _$DoctorsErrorImpl implements DoctorsError {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? specializationsLoading,
+    TResult? Function(int index)? onItemTapped,
     TResult? Function(List<SpecializationsData?>? specializationDataList)?
         specializationsSuccess,
     TResult? Function(ErrorHandler errorHandler)? specializationsError,
@@ -988,6 +1195,7 @@ class _$DoctorsErrorImpl implements DoctorsError {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? specializationsLoading,
+    TResult Function(int index)? onItemTapped,
     TResult Function(List<SpecializationsData?>? specializationDataList)?
         specializationsSuccess,
     TResult Function(ErrorHandler errorHandler)? specializationsError,
@@ -1007,6 +1215,7 @@ class _$DoctorsErrorImpl implements DoctorsError {
     required TResult Function(_Initial value) initial,
     required TResult Function(SpecializationsLoading value)
         specializationsLoading,
+    required TResult Function(onItemTapped value) onItemTapped,
     required TResult Function(SpecializationsSuccess value)
         specializationsSuccess,
     required TResult Function(SpecializationsError value) specializationsError,
@@ -1021,6 +1230,7 @@ class _$DoctorsErrorImpl implements DoctorsError {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(SpecializationsLoading value)? specializationsLoading,
+    TResult? Function(onItemTapped value)? onItemTapped,
     TResult? Function(SpecializationsSuccess value)? specializationsSuccess,
     TResult? Function(SpecializationsError value)? specializationsError,
     TResult? Function(DoctorsSuccess value)? doctorsSuccess,
@@ -1034,6 +1244,7 @@ class _$DoctorsErrorImpl implements DoctorsError {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(SpecializationsLoading value)? specializationsLoading,
+    TResult Function(onItemTapped value)? onItemTapped,
     TResult Function(SpecializationsSuccess value)? specializationsSuccess,
     TResult Function(SpecializationsError value)? specializationsError,
     TResult Function(DoctorsSuccess value)? doctorsSuccess,

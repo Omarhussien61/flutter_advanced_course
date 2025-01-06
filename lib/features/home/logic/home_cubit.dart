@@ -7,6 +7,13 @@ import 'home_state.dart';
 
 class HomeCubit extends Cubit<HomeState> {
   final HomeRepo _homeRepo;
+  int selectedIndex = 0;
+
+  void onItemTapped(int index) {
+    emit(HomeState.onItemTapped(index));
+      selectedIndex = index;
+
+  }
   HomeCubit(this._homeRepo) : super(const HomeState.initial());
 
   List<SpecializationsData?>? specializationsList = [];

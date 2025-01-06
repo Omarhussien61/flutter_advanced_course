@@ -21,7 +21,7 @@ class _HomeApiService implements HomeApiService {
   String? baseUrl;
 
   @override
-  Future<SpecializationsResponseModel> getSpecialization() async {
+  Future<SpecializationsResponseModel> getCategory() async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};

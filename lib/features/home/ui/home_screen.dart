@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_complete_project/core/helpers/spacing.dart';
 import 'package:flutter_complete_project/core/theming/colors.dart';
+import 'package:flutter_complete_project/features/home/logic/home_cubit.dart';
+import 'package:flutter_complete_project/features/home/logic/home_state.dart';
 import 'package:flutter_complete_project/features/home/ui/widgets/doctors_list/doctros_bloc_builder.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -40,33 +43,81 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.grey,
-        unselectedItemColor:Colors.grey ,
-         showSelectedLabels: false,
-         fixedColor: ColorsManager.mainBlue,
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.camera),
-            label: 'Calls',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.camera),
-            label: 'Camera',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.chat),
-            label: 'Chats',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.chat),
-            label: 'Chats',
-          ),
-        ],
+      bottomNavigationBar: BlocBuilder<HomeCubit, HomeState>(
+        builder: (context, state) {
+          return BottomNavigationBar(
+            currentIndex: context
+                .read<HomeCubit>()
+                .selectedIndex,
 
+            onTap: (index) {
+              context.read<HomeCubit>().onItemTapped(index);
+            },
+            backgroundColor: Colors.grey,
+            unselectedItemColor: Colors.grey,
+            showSelectedLabels: false,
+            fixedColor: ColorsManager.mainBlue,
+            items: <BottomNavigationBarItem>[
+              BottomNavigationBarItem(
+                activeIcon: Image.asset(
+                  'assets/images/home.png',
+                  color: ColorsManager.mainBlue,
+                  width: 24,
+                  height: 24,
+                ),
+                icon: Image.asset(
+                  'assets/images/home.png',
+                  width: 24,
+                  height: 24,
+                ),
+                label: 'Calls',
+              ),
+              BottomNavigationBarItem(
+                activeIcon: Image.asset(
+                  'assets/images/cart.png',
+                  color: ColorsManager.mainBlue,
+                  width: 24,
+                  height: 24,
+                ),
+                icon: Image.asset(
+                  'assets/images/cart.png',
+                  width: 24,
+                  height: 24,
+                ),
+                label: 'Chats',
+              ),
+              BottomNavigationBarItem(
+                activeIcon: Image.asset(
+                  'assets/images/box.png',
+                  color: ColorsManager.mainBlue,
+                  width: 24,
+                  height: 24,
+                ),
+                icon: Image.asset(
+                  'assets/images/box.png',
+                  width: 24,
+                  height: 24,
+                ),
+                label: 'Camera',
+              ),
+              BottomNavigationBarItem(
+                activeIcon: Image.asset(
+                  'assets/images/profile.png',
+                  color: ColorsManager.mainBlue,
+                  width: 24,
+                  height: 24,
+                ),
+                icon: Image.asset(
+                  'assets/images/profile.png',
+                  width: 24,
+                  height: 24,
+                ),
+                label: 'Chats',
+              ),
+            ],
+          );
+        },
       ),
     );
-
   }
-
 }
