@@ -17,7 +17,7 @@ class LoginBlocListener extends StatelessWidget {
       listenWhen: (previous, current) =>
           current is Loading || current is Success || current is Error,
       listener: (context, state) {
-        context.pushNamed(Routes.homeScreen);
+        // context.pushNamed(Routes.homeScreen);
 
         state.whenOrNull(
           loading: () {
@@ -35,7 +35,7 @@ class LoginBlocListener extends StatelessWidget {
             context.pushNamed(Routes.homeScreen);
           },
           error: (error) {
-            // setupErrorState(context, error);
+            setupErrorState(context, error);
           },
         );
       },

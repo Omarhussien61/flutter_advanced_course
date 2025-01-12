@@ -13,7 +13,7 @@ class _HomeApiService implements HomeApiService {
     this._dio, {
     this.baseUrl,
   }) {
-    baseUrl ??= 'https://vcare.integration25.com/api/';
+    baseUrl ??= 'https://www.cupeprint.com/api/';
   }
 
   final Dio _dio;
@@ -21,7 +21,7 @@ class _HomeApiService implements HomeApiService {
   String? baseUrl;
 
   @override
-  Future<SpecializationsResponseModel> getCategory() async {
+  Future<SpecializationsResponseModel> getProduct() async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
@@ -34,7 +34,7 @@ class _HomeApiService implements HomeApiService {
     )
             .compose(
               _dio.options,
-              'specialization/index',
+              'products',
               queryParameters: queryParameters,
               data: _data,
             )

@@ -13,6 +13,6 @@ part 'home_api_service.g.dart';
 abstract class HomeApiService {
   factory HomeApiService(Dio dio) = _HomeApiService;
 
-  @GET(HomeApiConstants.categoryEP)
-  Future<SpecializationsResponseModel> getCategory();
+  @GET(HomeApiConstants.productsEP)
+  Future<SpecializationsResponseModel> getProduct();
 }
