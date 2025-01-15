@@ -1,22 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_complete_project/features/home/data/models/categories_response_model.dart';
 import 'package:flutter_complete_project/features/home/logic/home_cubit.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../data/models/specializations_response_model.dart';
-import 'speciality_list_view_item.dart';
+import '../../../data/models/product_response_model.dart';
+import 'categories_list_view_item.dart';
 
-class SpecialityListView extends StatefulWidget {
-  final List<SpecializationsData?> specializationDataList;
-  const SpecialityListView(
+class CategoryListView extends StatefulWidget {
+  final List<CategoryData?> specializationDataList;
+  const CategoryListView(
       {super.key, required this.specializationDataList});
 
   @override
-  State<SpecialityListView> createState() =>
-      _SpecialityListViewState();
+  State<CategoryListView> createState() =>
+      _CategoryListViewState();
 }
 
-class _SpecialityListViewState extends State<SpecialityListView> {
+class _CategoryListViewState extends State<CategoryListView> {
   var selectedSpecializationIndex = 0;
 
   @override
@@ -29,12 +30,13 @@ class _SpecialityListViewState extends State<SpecialityListView> {
         itemBuilder: (context, index) {
           return GestureDetector(
             onTap: () {
+              print(widget.specializationDataList[index]?.name);
               setState(() {
                 selectedSpecializationIndex = index;
               });
-              context.read<HomeCubit>().getDoctorsList(
-                    specializationId: widget.specializationDataList[index]?.id,
-                  );
+              // context.read<HomeCubit>().getProductsList(
+              //       specializationId: widget.specializationDataList[index]?.id,
+              //     );
             },
             child: SpecialityListViewItem(
               specializationsData: widget.specializationDataList[index],

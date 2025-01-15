@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_complete_project/features/home/data/models/specializations_response_model.dart';
+import 'package:flutter_complete_project/features/home/data/models/categories_response_model.dart';
+import 'package:flutter_complete_project/features/home/data/models/product_response_model.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -8,7 +9,7 @@ import '../../../../../core/theming/colors.dart';
 import '../../../../../core/theming/styles.dart';
 
 class SpecialityListViewItem extends StatelessWidget {
-  final SpecializationsData? specializationsData;
+  final CategoryData? specializationsData;
   final int itemIndex;
   final int selectedIndex;
   const SpecialityListViewItem({

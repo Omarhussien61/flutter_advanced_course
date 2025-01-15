@@ -4,12 +4,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../core/helpers/spacing.dart';
 import '../../../logic/home_cubit.dart';
 import '../../../logic/home_state.dart';
-import '../doctors_list/doctors_shimmer_loading.dart';
-import 'speciality_list_view.dart';
-import 'speciality_shimmer_loading.dart';
+import '../products_list/product_shimmer_loading.dart';
+import 'categories_list_view.dart';
+import 'categories_shimmer_loading.dart';
 
-class SpecializationsBlocBuilder extends StatelessWidget {
-  const SpecializationsBlocBuilder({super.key});
+class CategoriesBlocBuilder extends StatelessWidget {
+  const CategoriesBlocBuilder({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +49,7 @@ class SpecializationsBlocBuilder extends StatelessWidget {
   }
 
   Widget setupSuccess(specializationsList) {
-    return SpecialityListView(
+    return CategoryListView(
       specializationDataList: specializationsList ?? [],
     );
   }

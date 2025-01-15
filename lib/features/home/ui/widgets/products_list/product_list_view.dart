@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-import '../../../data/models/specializations_response_model.dart';
-import 'doctors_list_view_item.dart';
+import '../../../data/models/product_response_model.dart';
+import 'product_list_view_item.dart';
 
 class DoctorsListView extends StatelessWidget {
-  final List<Doctors?>? doctorsList;
+  final List<ProductData?>? doctorsList;
   const DoctorsListView({super.key, this.doctorsList});
 
   @override

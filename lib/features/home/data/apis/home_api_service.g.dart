@@ -21,13 +21,13 @@ class _HomeApiService implements HomeApiService {
   String? baseUrl;
 
   @override
-  Future<SpecializationsResponseModel> getProduct() async {
+  Future<ProductsResponseModel> getProduct() async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<SpecializationsResponseModel>(Options(
+        _setStreamType<ProductsResponseModel>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -43,7 +43,34 @@ class _HomeApiService implements HomeApiService {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = SpecializationsResponseModel.fromJson(_result.data!);
+    final value = ProductsResponseModel.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
+  Future<CategoryResponseModel> getCatgory() async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<CategoryResponseModel>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'categories',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    final value = CategoryResponseModel.fromJson(_result.data!);
     return value;
   }
 

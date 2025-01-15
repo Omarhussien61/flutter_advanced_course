@@ -1,7 +1,8 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_complete_project/core/helpers/extensions.dart';
+import 'package:flutter_complete_project/features/home/data/models/categories_response_model.dart';
 import '../../../core/networking/api_error_handler.dart';
-import '../data/models/specializations_response_model.dart';
+import '../data/models/product_response_model.dart';
 import '../data/repos/home_repo.dart';
 import 'home_state.dart';
 
@@ -16,19 +17,20 @@ class HomeCubit extends Cubit<HomeState> {
   }
   HomeCubit(this._homeRepo) : super(const HomeState.initial());
 
-  List<SpecializationsData?>? specializationsList = [];
+  List<CategoryData?>? categoriesList = [];
+  List<ProductData?>? ProductsList = [];
 
-  void getSpecializations() async {
+  void getCategories() async {
     emit(const HomeState.specializationsLoading());
-    final response = await _homeRepo.getSpecialization();
+    final response = await _homeRepo.getCategory();
     response.when(
       success: (specializationsResponseModel) {
-        specializationsList =
+        categoriesList =
             specializationsResponseModel.specializationDataList ?? [];
 
         // getting the doctors list for the first specialization by default.
-        getDoctorsList(specializationId: specializationsList?.first?.id);
-
+        // getProductsList(specializationId: categoriesList?.first?.id);
+        getProducts();
         emit(HomeState.specializationsSuccess(
             specializationsResponseModel.specializationDataList));
       },
@@ -37,9 +39,28 @@ class HomeCubit extends Cubit<HomeState> {
       },
     );
   }
+  void getProducts() async {
+    emit(const HomeState.specializationsLoading());
+    final response = await _homeRepo.getProducts();
+    response.when(
+      success: (specializationsResponseModel) {
+        ProductsList =
+            specializationsResponseModel.specializationDataList ?? [];
 
-  void getDoctorsList({required int? specializationId}) {
-    List<Doctors?>? doctorsList =
+        // getting the doctors list for the first specialization by default.
+        // getProductsList(specializationId: categoriesList?.first?.id);
+
+        emit(HomeState.doctorsSuccess(
+            specializationsResponseModel.specializationDataList));
+      },
+      failure: (errorHandler) {
+        emit(HomeState.specializationsError(errorHandler));
+      },
+    );
+  }
+
+  void getProductsList({required int? specializationId}) {
+    List<ProductData?>? doctorsList =
         getDoctorsListBySpecializationId(specializationId);
 
     if (!doctorsList.isNullOrEmpty()) {
@@ -51,7 +72,7 @@ class HomeCubit extends Cubit<HomeState> {
 
   /// returns the list of doctors based on the specialization id
   getDoctorsListBySpecializationId(specializationId) {
-    return specializationsList
+    return categoriesList
         ?.firstWhere((specialization) => specialization?.id == specializationId)
         ?.doctorsList;
   }
