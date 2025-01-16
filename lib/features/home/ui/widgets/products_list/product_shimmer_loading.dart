@@ -5,8 +5,8 @@ import 'package:shimmer/shimmer.dart';
 import '../../../../../../core/helpers/spacing.dart';
 import '../../../../../../core/theming/colors.dart';
 
-class DoctorsShimmerLoading extends StatelessWidget {
-  const DoctorsShimmerLoading({super.key});
+class ProductsShimmerLoading extends StatelessWidget {
+  const ProductsShimmerLoading({super.key});
 
   @override
   Widget build(BuildContext context) {

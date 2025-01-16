@@ -15,8 +15,8 @@ class ProductsBlocBuilder extends StatelessWidget {
           current is DoctorsSuccess || current is DoctorsError,
       builder: (context, state) {
         return state.maybeWhen(
-          doctorsSuccess: (doctorsList) {
-            return setupSuccess(doctorsList);
+          doctorsSuccess: (productsList) {
+            return setupSuccess(productsList);
           },
           doctorsError: (errorHandler) => setupError(),
           orElse: () {
@@ -28,8 +28,8 @@ class ProductsBlocBuilder extends StatelessWidget {
   }
 
   Widget setupSuccess(doctorsList) {
-    return DoctorsListView(
-      doctorsList: doctorsList,
+    return ProductsListView(
+      ProductsList: doctorsList,
     );
   }
 

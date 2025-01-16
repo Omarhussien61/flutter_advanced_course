@@ -1,3 +1,4 @@
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_complete_project/core/helpers/extensions.dart';
 import 'package:flutter_complete_project/features/home/data/models/categories_response_model.dart';
@@ -26,15 +27,16 @@ class HomeCubit extends Cubit<HomeState> {
     response.when(
       success: (specializationsResponseModel) {
         categoriesList =
-            specializationsResponseModel.specializationDataList ?? [];
-
+            specializationsResponseModel.CategorydataList ?? [];
         // getting the doctors list for the first specialization by default.
         // getProductsList(specializationId: categoriesList?.first?.id);
+        emit(HomeState.specializationsSuccess(categoriesList));
+
         getProducts();
-        emit(HomeState.specializationsSuccess(
-            specializationsResponseModel.specializationDataList));
+
       },
       failure: (errorHandler) {
+
         emit(HomeState.specializationsError(errorHandler));
       },
     );
@@ -43,15 +45,16 @@ class HomeCubit extends Cubit<HomeState> {
     emit(const HomeState.specializationsLoading());
     final response = await _homeRepo.getProducts();
     response.when(
-      success: (specializationsResponseModel) {
+      success: (productsDataList) {
+
         ProductsList =
-            specializationsResponseModel.specializationDataList ?? [];
+            productsDataList.ProductsDataList ?? [];
 
         // getting the doctors list for the first specialization by default.
         // getProductsList(specializationId: categoriesList?.first?.id);
 
         emit(HomeState.doctorsSuccess(
-            specializationsResponseModel.specializationDataList));
+            productsDataList.ProductsDataList));
       },
       failure: (errorHandler) {
         emit(HomeState.specializationsError(errorHandler));
@@ -72,8 +75,8 @@ class HomeCubit extends Cubit<HomeState> {
 
   /// returns the list of doctors based on the specialization id
   getDoctorsListBySpecializationId(specializationId) {
-    return categoriesList
-        ?.firstWhere((specialization) => specialization?.id == specializationId)
-        ?.doctorsList;
+    // return categoriesList
+    //     ?.firstWhere((specialization) => specialization?.id == specializationId)
+    //     ?.doctorsList;
   }
 }

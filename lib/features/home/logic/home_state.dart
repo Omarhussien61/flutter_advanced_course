@@ -13,8 +13,8 @@ class HomeState with _$HomeState {
   // Specializations
   const factory HomeState.specializationsLoading() = SpecializationsLoading;
   const factory HomeState.onItemTapped(int index) = onItemTapped;
-  const factory HomeState.specializationsSuccess(List<CategoryData?>?
-  specializationDataList) = SpecializationsSuccess;
+  const factory HomeState.specializationsSuccess(List<CategoryData?>?specializationDataList) = SpecializationsSuccess;
+
   const factory HomeState.specializationsError(ErrorHandler errorHandler) =SpecializationsError;
 
   // Doctors

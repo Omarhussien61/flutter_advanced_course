@@ -20,8 +20,10 @@ class HomeRepo {
   Future<ApiResult<CategoryResponseModel>> getCategory() async {
     try {
       final response = await _homeApiService.getCatgory();
+
       return ApiResult.success(response);
     } catch (error) {
+
       return ApiResult.failure(ErrorHandler.handle(error));
     }
   }

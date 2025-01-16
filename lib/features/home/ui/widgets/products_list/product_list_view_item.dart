@@ -8,9 +8,9 @@ import '../../../../../core/theming/colors.dart';
 import '../../../../../core/theming/styles.dart';
 import '../../../data/models/product_response_model.dart';
 
-class DoctorsListViewItem extends StatelessWidget {
+class ProductsViewItem extends StatelessWidget {
   final ProductData? doctorsModel;
-  const DoctorsListViewItem({super.key, this.doctorsModel});
+  const ProductsViewItem({super.key, this.doctorsModel});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,7 @@ class DoctorsListViewItem extends StatelessWidget {
         children: [
           CachedNetworkImage(
             imageUrl:
-                "https://static.wikia.nocookie.net/five-world-war/images/6/64/Hisoka.jpg/revision/latest?cb=20190313114050",
+            doctorsModel?.media ??  "https://static.wikia.nocookie.net/five-world-war/images/6/64/Hisoka.jpg/revision/latest?cb=20190313114050",
             progressIndicatorBuilder: (context, url, downloadProgress) {
               return Shimmer.fromColors(
                 baseColor: ColorsManager.lightGray,

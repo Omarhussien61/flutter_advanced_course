@@ -21,7 +21,7 @@ class CategoriesBlocBuilder extends StatelessWidget {
       builder: (context, state) {
         return state.maybeWhen(
             specializationsLoading: () {
-              return setupLoading();
+              return setupSuccess(context.read<HomeCubit>().categoriesList);
             },
             specializationsSuccess: (specializationDataList) {
               var specializationsList = specializationDataList;
@@ -42,13 +42,14 @@ class CategoriesBlocBuilder extends StatelessWidget {
         children: [
           const SpecialityShimmerLoading(),
           verticalSpace(8),
-          const DoctorsShimmerLoading(),
+          const ProductsShimmerLoading(),
         ],
       ),
     );
   }
 
   Widget setupSuccess(specializationsList) {
+
     return CategoryListView(
       specializationDataList: specializationsList ?? [],
     );

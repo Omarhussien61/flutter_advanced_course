@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_complete_project/features/home/data/models/categories_response_model.dart';
 import 'package:flutter_complete_project/features/home/data/models/product_response_model.dart';
@@ -31,27 +32,19 @@ class SpecialityListViewItem extends StatelessWidget {
                     border: Border.all(
                       color: ColorsManager.darkBlue,
                     ),
-                    shape: BoxShape.circle,
+                    shape: BoxShape.rectangle,
                   ),
-                  child: CircleAvatar(
-                    radius: 28,
-                    backgroundColor: ColorsManager.lightBlue,
-                    child: SvgPicture.asset(
-                      'assets/svgs/general_speciality.svg',
-                      height: 42.h,
-                      width: 42.w,
-                    ),
+                  child: CachedNetworkImage(
+                  imageUrl: specializationsData?.photo??'' ,
+                    height: 50.h,
+                    width: 50.w,
                   ),
                 )
-              : CircleAvatar(
-                  radius: 28,
-                  backgroundColor: ColorsManager.lightBlue,
-                  child: SvgPicture.asset(
-                    'assets/svgs/general_speciality.svg',
-                    height: 40.h,
-                    width: 40.w,
-                  ),
-                ),
+              :CachedNetworkImage(
+                imageUrl: specializationsData?.photo??'' ,
+                height: 50.h,
+                width: 50.w,
+              ),
           verticalSpace(8),
           Text(
             specializationsData?.name ?? 'Specialization',
